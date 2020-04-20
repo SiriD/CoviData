@@ -1,4 +1,4 @@
-package com.sirid.covdata
+package com.sirid.covidata
 
 import org.junit.Test
 

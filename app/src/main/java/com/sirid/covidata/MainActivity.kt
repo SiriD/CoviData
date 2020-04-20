@@ -1,4 +1,4 @@
-package com.sirid.covdata
+package com.sirid.covidata
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
