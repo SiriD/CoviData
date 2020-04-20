@@ -1,0 +1,2 @@
+rootProject.name='CoviData'
+include ':app'
