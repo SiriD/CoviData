@@ -1,7 +1,6 @@
 package com.sirid.covidata.api
 
 import kotlinx.coroutines.Deferred
-import retrofit2.Call
 import retrofit2.http.GET
 
 interface CoviDataApi {
