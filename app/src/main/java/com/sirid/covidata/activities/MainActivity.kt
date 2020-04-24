@@ -1,8 +1,9 @@
-package com.sirid.covidata
+package com.sirid.covidata.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.sirid.covidata.R
 
 class MainActivity : AppCompatActivity() {
 

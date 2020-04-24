@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CoviData</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chart_fragment">chart fragment</string>
     <string name="data_list_item">Data list item</string>
 
 </resources>

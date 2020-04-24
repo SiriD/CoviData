@@ -53,7 +53,6 @@ dependencies {
     def daggerVersion = '2.27'
     implementation("com.google.dagger:dagger:$daggerVersion")
     compileOnly("org.glassfish:javax.annotation:10.0-b28")
-//    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt 'com.google.dagger:dagger-android-processor:2.15'
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
