@@ -1,4 +1,4 @@
-package com.sirid.covidata.coviddata
+package com.sirid.covidata.coviddatachart
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

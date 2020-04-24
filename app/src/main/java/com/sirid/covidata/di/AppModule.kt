@@ -24,9 +24,4 @@ class AppModule(val app: CoviDataApp) {
     @Provides
     fun provideCoroutineContext(): CoroutineContext = Dispatchers.Default
 
-
-
-
-
-
 }

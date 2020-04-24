@@ -1,6 +1,6 @@
 package com.sirid.covidata.di.covidata
 
-import com.sirid.covidata.coviddata.ChartFragment
+import com.sirid.covidata.coviddatachart.ChartFragment
 import com.sirid.covidata.di.AppModule
 import com.sirid.covidata.di.NetworkModule
 import dagger.Component
