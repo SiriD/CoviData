@@ -31,7 +31,7 @@ class ChartFragment : Fragment() {
             this.line_chart.data = helper.generateLineChart()
         })
 
-        dataViewModel.getCasesTimeSeriesData()
+        dataViewModel.getCovidData()
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.chart_fragment, container, false)
