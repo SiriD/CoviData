@@ -1,17 +1,14 @@
 package com.sirid.covidata
 
 import android.app.Application
-import com.sirid.covidata.di.covidata.CovidDataComponent
-import com.sirid.covidata.di.covidata.DaggerCovidDataComponent
+import android.content.Context
 
 class CoviDataApp: Application() {
-
     companion object {
-        lateinit var covidDataComponent: CovidDataComponent
-    }
+        private var instance: CoviDataApp? = null
 
-    override fun onCreate() {
-        super.onCreate()
-        covidDataComponent = DaggerCovidDataComponent.builder().build()
+        fun applicationContext() : Context {
+            return instance!!.applicationContext
+        }
     }
 }
