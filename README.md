@@ -1,2 +1,2 @@
 # CoviData
-Attempts at LeetCode problems
+Android Development using Kotlin
