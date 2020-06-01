@@ -1,24 +1,35 @@
 package com.sirid.covidata
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import retrofit2.Retrofit
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class DataRepository(val apiService: ApiService) {
+class DataRepository {
 
     val liveDataCasesTimeSeries = MutableLiveData<List<CasesTimeSeries>>()
     val liveDataStatewise = MutableLiveData<List<Statewise>>()
     val liveDataTested = MutableLiveData<List<Tested>>()
 
-    fun getCasesTimeSeries() {
-        liveDataCasesTimeSeries.value = apiService.getCasesTimeSeriesData()
-    }
+    fun getLiveCovidData(): MutableLiveData<CovidData> {
+        val liveCovidData = MutableLiveData<CovidData>()
 
-    fun getStatewiseData() {
-        liveDataStatewise.value = apiService.getStatewiseData()
-    }
+        val response = DataApiService.buildService(DataApi::class.java)
+        response.getCovidData().enqueue(object : Callback<CovidData> {
+            override fun onResponse(call: Call<CovidData>, response: Response<CovidData>) {
+                if (response.isSuccessful) {
+                    liveDataCasesTimeSeries.value = response.body()!!.cases_time_series
+                    liveDataStatewise.value = response.body()!!.statewise
+                    liveDataTested.value = response.body()!!.tested
+                }
+            }
 
-    fun getTestedData() {
-        liveDataTested.value = apiService.getTestedData()
-    }
+            override fun onFailure(call: Call<CovidData>, t: Throwable) {
+                Log.e("FAILURE IN REPOSITORY", "onFailure: Failed to get Covid data")
+            }
+        })
 
+        return liveCovidData
+    }
 }

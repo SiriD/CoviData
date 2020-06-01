@@ -4,19 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 
 class ChartViewModel(val dataRepository: DataRepository): ViewModel() {
-    val casesTimeSeries: LiveData<List<CasesTimeSeries>> = dataRepository.liveDataCasesTimeSeries
-    val statewise: LiveData<List<Statewise>> = dataRepository.liveDataStatewise
-    val tested: LiveData<List<Tested>> = dataRepository.liveDataTested
+    init {
+        dataRepository.getLiveCovidData()
+    }
+    var casesTimeSeries: LiveData<List<CasesTimeSeries>> = dataRepository.liveDataCasesTimeSeries
+    var statewise: LiveData<List<Statewise>> = dataRepository.liveDataStatewise
+    var tested: LiveData<List<Tested>> = dataRepository.liveDataTested
 
-    fun getCasesTimeSeriesData() {
-        dataRepository.getCasesTimeSeries()
+    fun getCasesTimeSeriesData(): LiveData<List<CasesTimeSeries>> {
+        return casesTimeSeries
     }
 
-    fun getStatewiseData() {
-        dataRepository.getStatewiseData()
+    fun getStatewiseData(): LiveData<List<Statewise>> {
+        return statewise
     }
 
-    fun getTestedData() {
-        dataRepository.getTestedData()
+    fun getTestedData(): LiveData<List<Tested>> {
+        return tested
     }
+
 }

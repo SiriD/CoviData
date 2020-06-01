@@ -1,9 +1,17 @@
 package com.sirid.covidata
 
-import retrofit2.Call
-import retrofit2.http.GET
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 
-interface DataApiService {
-    @GET("data.json")
-    fun getCovidData(): Call<CovidData>
+object DataApiService {
+
+    val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://api.covid19india.org/")
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
+
+    fun<T> buildService(service: Class<T>): T {
+        return retrofit.create(service)
+    }
 }

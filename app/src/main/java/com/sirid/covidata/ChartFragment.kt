@@ -13,8 +13,7 @@ import kotlinx.android.synthetic.main.chart_fragment.*
 class ChartFragment : Fragment() {
 
     object Injection {
-        val service: ApiService by lazy { ApiService() }
-        val repository: DataRepository by lazy { DataRepository(service) }
+        val repository: DataRepository by lazy { DataRepository() }
         val viewModelFactory: DataViewModelFactory by lazy { DataViewModelFactory(repository) }
     }
 
@@ -31,6 +30,7 @@ class ChartFragment : Fragment() {
             var helper = ChartHelper(casesTimeSeriesDataList)
             this.line_chart.data = helper.generateLineChart()
         })
+
         dataViewModel.getCasesTimeSeriesData()
 
         // Inflate the layout for this fragment
