@@ -12,16 +12,4 @@ class ChartViewModel(val dataRepository: DataRepository): ViewModel() {
         dataRepository.getLiveCovidData()
     }
 
-    fun getCasesTimeSeriesData(): LiveData<List<CasesTimeSeries>> {
-        return casesTimeSeries
-    }
-
-    fun getStatewiseData(): LiveData<List<Statewise>> {
-        return statewise
-    }
-
-    fun getTestedData(): LiveData<List<Tested>> {
-        return tested
-    }
-
 }

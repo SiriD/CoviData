@@ -26,7 +26,7 @@ class DataRepository {
             }
 
             override fun onFailure(call: Call<CovidData>, t: Throwable) {
-                Log.e("FAILURE IN REPOSITORY", "onFailure: Failed to get Covid data")
+                Log.e("FAILED IN REPOSITORY", "onFailure: Failed to get Covid data")
             }
         })
 
